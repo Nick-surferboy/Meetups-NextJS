@@ -1,17 +1,14 @@
-const { Fragment } = require("react");
-import  Link  from "next/link";
+'use client'
+import NewMeetupForm from "/components/meetups/NewMeetupForm";
 
-function NewsPage() {
+
+function NewMeetupPage() {
+  function addMeetupHandler(enteredMeetupdata){
+    console.log(enteredMeetupdata)
+  }
   return (
-    <Fragment>
-      <ul>
-        <li>
-          <Link href="/news/great">NextJS is a great</Link>
-        </li>
-        <li>A new thing</li>
-      </ul>
-    </Fragment>
+    <NewMeetupForm onAddMeetup={addMeetupHandler}/>
   );
 }
 
-export default NewsPage;
+export default NewMeetupPage;

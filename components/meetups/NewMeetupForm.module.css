@@ -1,5 +1,6 @@
 .form {
   padding: 1rem;
+  
 }
 
 .control {
@@ -10,6 +11,7 @@
   display: block;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: black;
 }
 
 .control input,
