@@ -1,11 +1,12 @@
-'use client'
-import { useRouter, useSearchParams } from "next/navigation";
+import MeetupDetail from "@/components/meetups/MeetupDetail";
+
+
 
 function DetailsPage() {
-  const router = useRouter();
-  const id = useSearchParams() ;
+ // const router = useRouter();
+ // const id = useSearchParams();
   //console.log(id) ;
-  return <h1> Details Page</h1>;
+  return <MeetupDetail image="https://upload.wikimedia.org/wikipedia/commons/7/72/Saveh_Bazaar.jpg" title="Title" address="address" description="" />;
 }
 
 export default DetailsPage;

@@ -1,5 +1,5 @@
 //const { default: MeetupList } = require("@/components/meetups/MeetupList");
-
+//"use client";
 import MeetupList from "../components/meetups/MeetupList";
 
 const DUMMY_MEETUPS = [
@@ -19,10 +19,18 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function HomePage() {
-  return (
-      <MeetupList meetups={DUMMY_MEETUPS} />
-  );
+async function HomePage() {
+  //The await helps to pre render the data
+  //data fetching
+  const loadedMeetups = await getData();
+  //console.log(loadedMeetups)
+  return <MeetupList meetups={loadedMeetups} />;
 }
 
+export async function getData() {
+  //const data = fetch(DUMMY_MEETUPS)
+  return DUMMY_MEETUPS;
+}
+
+export const revalidate = 30 ;
 export default HomePage;
