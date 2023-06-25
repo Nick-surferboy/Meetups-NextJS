@@ -3,10 +3,17 @@ import MeetupDetail from "@/components/meetups/MeetupDetail";
 async function DetailsPage({ params }) {
 
   const data = await getData();
-  console.log(params.meetupId);
+  //console.log(params.meetupId);
 
   return <MeetupDetail image={data.image} title={data.title} address={data.address} description={data.description} />;
 }
+
+//pre-render the dynamic routes
+// export async function generateStaticParams(){
+
+//   //const meetups = await fetch ('')
+//   return null;
+// }
 
 export async function getData() {
   //const data = fetch(DUMMY_MEETUPS)
@@ -18,5 +25,8 @@ export async function getData() {
     description: "",
   };
 }
+
+
+
 
 export default DetailsPage;
