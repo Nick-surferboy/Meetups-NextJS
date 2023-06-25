@@ -20,7 +20,7 @@ const DUMMY_MEETUPS = [
 ];
 
 async function HomePage() {
-  //The await helps to pre render the data
+  //The await getData() helps to pre render the data
   //data fetching
   const loadedMeetups = await getData();
   //console.log(loadedMeetups)
@@ -32,5 +32,5 @@ export async function getData() {
   return DUMMY_MEETUPS;
 }
 
-export const revalidate = 30 ;
+export const revalidate = 30 ; //updated after loading
 export default HomePage;
