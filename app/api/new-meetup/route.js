@@ -1,6 +1,6 @@
 // api/new-meetup
 import { MongoClient } from "mongodb";
-
+import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req, res) {
   const uri = "mongodb+srv://nick:wILMmOy92IRgDikM@cluster0.xembtas.mongodb.net/?retryWrites=true&w=majority";
@@ -9,17 +9,8 @@ export async function POST(req, res) {
   const meetupsCollection = db.collection("meetups");
 
   if (req.method === "POST") {
-    const data = req.body;
-
-    console.log("Dataaaa "+data);
+    const data = await req.json();
     const result = await meetupsCollection.insertOne(data);
-    
-    console.log(result);
   }
   client.close();
-  console.log("exit");
-  //res.status(201).json({ message: "Meetup inserted" });
-
 }
-
-//export default handler;
