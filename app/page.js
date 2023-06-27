@@ -1,6 +1,7 @@
 //const { default: MeetupList } = require("@/components/meetups/MeetupList");
 //"use client";
 import MeetupList from "../components/meetups/MeetupList";
+import { MongoClient } from "mongodb";
 
 const DUMMY_MEETUPS = [
   {
@@ -29,7 +30,15 @@ async function HomePage() {
 
 export async function getData() {
   //const data = fetch(DUMMY_MEETUPS)
-  return DUMMY_MEETUPS;
+  const uri = "mongodb+srv://nick:wILMmOy92IRgDikM@cluster0.xembtas.mongodb.net/?retryWrites=true&w=majority";
+  const client = await MongoClient.connect(uri);
+  const db = client.db();
+  const meetupsCollection = db.collection("meetups");
+
+  const meetups = await meetupsCollection.find().toArray() ;
+  client.close() ;
+
+  return meetups;
 }
 
 export const revalidate = 30 ; //updated after loading
