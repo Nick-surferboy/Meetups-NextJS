@@ -1,7 +1,9 @@
 "use client";
 import NewMeetupForm from "/components/meetups/NewMeetupForm";
+import { useRouter } from "next/navigation";
 
 function NewMeetupPage() {
+  const router = useRouter();
   async function addMeetupHandler(enteredMeetupdata) {
     try {
       const response = await fetch("/api/new-meetup", {
@@ -11,15 +13,10 @@ function NewMeetupPage() {
           "Content-Type": "application/json",
         },
       });
-      
-
-      const data = await response.json() 
-      return data ;
-   
     } catch (err) {
       console.log("Error   " + err.message);
     }
-   
+    router.push("/");
   }
   return <NewMeetupForm onAddMeetup={addMeetupHandler} />;
 }
