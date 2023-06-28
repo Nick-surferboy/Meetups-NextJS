@@ -1,6 +1,5 @@
 // api/new-meetup
 import { MongoClient } from "mongodb";
-import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req, res) {
   const uri = "mongodb+srv://nick:wILMmOy92IRgDikM@cluster0.xembtas.mongodb.net/?retryWrites=true&w=majority";
